@@ -1,40 +1,19 @@
-package com.cognoware.test.persistence.entity;
+package com.cognoware.test.domain.dto;
 
-import jakarta.persistence.*;
+import com.cognoware.test.persistence.entity.Company;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "persona")
-public class Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_persona", nullable = false, unique = true)
+
+public class PersonDTO {
     private Integer idPerson;
-
-    @Column(name = "cedula", nullable = false, unique = true, length = 10)
     private String passport;
-
-    @Column(name = "nombres", length = 20)
     private String names;
-
-    @Column(name = "apellidos", length = 20)
     private String lastName;
-
-    @Column(name = "direccion", length = 40)
     private String address;
-
-    @Column(name = "celular", length = 10)
     private String phoneNumber;
-
-    @Column(name = "correo",unique = true, length = 40)
     private String email;
-
-    @Column(name = "fecha_nacimiento", columnDefinition = "DATETIME")
     private LocalDateTime birthdate;
-
-    @ManyToOne
-    @JoinColumn(name = "id_empresa")
     private Company company;
 
     public Integer getIdPerson() {

@@ -1,26 +1,14 @@
-package com.cognoware.test.persistence.entity;
+package com.cognoware.test.domain.dto;
 
-import jakarta.persistence.*;
+import com.cognoware.test.persistence.entity.Person;
+
 import java.util.List;
 
-@Entity
-@Table(name = "empresa")
-public class Company {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_empresa", unique = true, nullable = false)
+public class CompanyDTO {
     private Integer idCompany;
-
-    @Column(name = "nombre", length = 30, unique = true, nullable = false)
     private String name;
-
-    @Column(name = "celular", length = 10)
     private String phoneNumber;
-
-    @Column(name = "direccion", length = 40)
     private String address;
-
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Person> persons;
 
     public Integer getIdCompany() {
