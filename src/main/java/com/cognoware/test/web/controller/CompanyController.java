@@ -44,6 +44,12 @@ public class CompanyController {
         return ResponseEntity.badRequest().build();
     }
 
+    @PutMapping("/{idCompany}")
+    public  ResponseEntity<Void> addPerson(@PathVariable int idCompany, @RequestParam List<Integer> idsPerson) {
+        service.addPerson(idCompany, idsPerson);
+        return ResponseEntity.ok().build();
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable int id){
         if (service.existId(id)) {

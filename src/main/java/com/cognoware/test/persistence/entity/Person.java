@@ -1,5 +1,6 @@
 package com.cognoware.test.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -35,6 +36,7 @@ public class Person {
     private LocalDateTime birthdate;
 
     @ManyToMany(mappedBy = "persons", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Company> companies;
 
     public Integer getIdPerson() {

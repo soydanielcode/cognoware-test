@@ -10,6 +10,6 @@ public interface CompanyRepository {
     Optional<CompanyDTO> getCompany(int idCompany);
     CompanyDTO save(CompanyDTO companyDTO);
     void delete(int id);
-
     boolean existId (int id);
+    void addPerson(int idCompany, List<Integer>idsPerson);
 }

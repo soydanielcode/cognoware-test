@@ -1,5 +1,6 @@
 package com.cognoware.test.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class Company {
             name = "persona_empresa",
             joinColumns = @JoinColumn(name = "fk_empresa", nullable = false),
             inverseJoinColumns = @JoinColumn(name = "fk_persona", nullable = false))
+    @JsonIgnore
     private List<Person> persons;
 
     public void addPerson(Person person){

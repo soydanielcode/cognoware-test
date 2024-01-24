@@ -37,6 +37,10 @@ public class CompanyService {
         }).orElse(false);
     }
 
+    public void addPerson(int idCompany, List<Integer> idPerson){
+       repositoryImpl.addPerson(idCompany, idPerson);
+    }
+
     public boolean existId(int id){
         return repositoryImpl.existId(id);
     }
