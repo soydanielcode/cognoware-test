@@ -1,0 +1,46 @@
+<section class="todoapp">
+    <header class="header">
+        <div class="container">
+            <h1>Crud Person</h1>
+            <p>Register here </p>
+        </div>
+    </header>
+    <div class="container todoapp-wrapper">
+        <!-- This section should be hidden by default and shown when there are todos -->
+        <section class="main">
+            <p>Names</p>
+            <input class="new-todo" placeholder="Type your names" autofocus type="text" />
+            <p>Last Names</p>
+            <input class="new-todo" placeholder="Type your Last Name" autofocus type="text" />
+            <p>Passsport</p>
+            <input class="new-todo" placeholder="Type your Passsport" autofocus type="text" />
+            <p>Address</p>
+            <input class="new-todo" placeholder="Type your Address" autofocus type="text" />
+            <p>Phone Number</p>
+            <input class="new-todo" placeholder="Type your Phone Number" autofocus type="text" />
+            <p>Email</p>
+            <input class="new-todo" placeholder="Type your Email" autofocus type="text" />
+        </section>
+        <footer class="footer">
+            <button class="clear-completed">Guardar</button>
+        </footer>
+    </div>
+    <div class="container">
+        <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of datos">
+                <td>{{ item.id }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.descripcion }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</section>
