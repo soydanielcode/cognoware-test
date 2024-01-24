@@ -1,10 +1,13 @@
 package com.cognoware.test.domain.service;
 
 import com.cognoware.test.domain.dto.CompanyDTO;
+import com.cognoware.test.persistence.entity.Person;
 import com.cognoware.test.persistence.impl.CompanyRepositoryImpl;
+import com.cognoware.test.persistence.impl.PersonRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +15,8 @@ import java.util.Optional;
 public class CompanyService {
     @Autowired
     private CompanyRepositoryImpl repositoryImpl;
+    @Autowired
+    private PersonRepositoryImpl personRepository;
 
     public List<CompanyDTO> getAll() {
         return repositoryImpl.getAll();

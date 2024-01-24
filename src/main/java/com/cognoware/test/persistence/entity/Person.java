@@ -3,6 +3,7 @@ package com.cognoware.test.persistence.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "persona")
@@ -33,9 +34,8 @@ public class Person {
     @Column(name = "fecha_nacimiento", columnDefinition = "DATETIME")
     private LocalDateTime birthdate;
 
-    @ManyToOne
-    @JoinColumn(name = "id_empresa")
-    private Company company;
+    @ManyToMany(mappedBy = "persons", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Company> companies;
 
     public Integer getIdPerson() {
         return idPerson;
@@ -101,11 +101,11 @@ public class Person {
         this.birthdate = birthdate;
     }
 
-    public Company getCompany() {
-        return company;
+    public List<Company> getCompanies() {
+        return companies;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
     }
 }

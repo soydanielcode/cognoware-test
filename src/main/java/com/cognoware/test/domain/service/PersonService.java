@@ -2,6 +2,7 @@ package com.cognoware.test.domain.service;
 
 import com.cognoware.test.domain.dto.PersonDTO;
 import com.cognoware.test.persistence.impl.PersonRepositoryImpl;
+import com.cognoware.test.persistence.projections.EmployeesSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +35,9 @@ public class PersonService {
 
     public boolean existId(int id){
        return repositoryImpl.existId(id);
+    }
+
+    public List<EmployeesSummary> getEmployeesByCompany(){
+        return repositoryImpl.findSummary();
     }
 }

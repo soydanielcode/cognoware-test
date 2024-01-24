@@ -1,6 +1,8 @@
 package com.cognoware.test.persistence.entity;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,8 +22,19 @@ public class Company {
     @Column(name = "direccion", length = 40)
     private String address;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "persona_empresa",
+            joinColumns = @JoinColumn(name = "fk_empresa", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "fk_persona", nullable = false))
     private List<Person> persons;
+
+    public void addPerson(Person person){
+        if (this.persons == null) {
+            this.persons = new ArrayList<>();
+        }
+        this.persons.add(person);
+    }
 
     public Integer getIdCompany() {
         return idCompany;

@@ -22,7 +22,7 @@ public interface PersonMapper {
             @Mapping(source = "phoneNumber", target = "phoneNumber"),
             @Mapping(source = "email", target = "email"),
             @Mapping(source = "birthdate", target = "birthdate"),
-            @Mapping(source = "company", target = "company"),
+            @Mapping(source = "companies", target = "companies"),
     })
     PersonDTO toPersonDTO(Person person);
     List<PersonDTO> toPersonDTOs(List<Person> persons);

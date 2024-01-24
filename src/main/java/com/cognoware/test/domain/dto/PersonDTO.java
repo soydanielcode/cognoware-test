@@ -3,6 +3,7 @@ package com.cognoware.test.domain.dto;
 import com.cognoware.test.persistence.entity.Company;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 public class PersonDTO {
@@ -14,7 +15,7 @@ public class PersonDTO {
     private String phoneNumber;
     private String email;
     private LocalDateTime birthdate;
-    private Company company;
+    private List<Company> companies;
 
     public Integer getIdPerson() {
         return idPerson;
@@ -80,11 +81,11 @@ public class PersonDTO {
         this.birthdate = birthdate;
     }
 
-    public Company getCompany() {
-        return company;
+    public List<Company> getCompanies() {
+        return companies;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompanies(List<Company> companies) {
+        this.companies = companies;
     }
 }

@@ -5,6 +5,7 @@ import com.cognoware.test.domain.repository.PersonRepository;
 import com.cognoware.test.persistence.crud.PersonCrudRepository;
 import com.cognoware.test.persistence.entity.Person;
 import com.cognoware.test.persistence.mapper.PersonMapper;
+import com.cognoware.test.persistence.projections.EmployeesSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -42,5 +43,10 @@ public class PersonRepositoryImpl implements PersonRepository {
     @Override
     public boolean existId(int id) {
         return repository.existsById(id);
+    }
+
+    @Override
+    public List<EmployeesSummary> findSummary() {
+        return repository.findSummary();
     }
 }

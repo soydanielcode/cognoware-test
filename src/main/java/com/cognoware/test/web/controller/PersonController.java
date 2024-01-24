@@ -2,6 +2,7 @@ package com.cognoware.test.web.controller;
 
 import com.cognoware.test.domain.dto.PersonDTO;
 import com.cognoware.test.domain.service.PersonService;
+import com.cognoware.test.persistence.projections.EmployeesSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,10 +22,15 @@ public class PersonController {
         return ResponseEntity.ok(service.getAll());
     }
 
-    @GetMapping("/{idCompany}")
-    public ResponseEntity<PersonDTO> getPerson(@PathVariable int idCompany) {
+    @GetMapping("/{idPerson}")
+    public ResponseEntity<PersonDTO> getPerson(@PathVariable int idPerson) {
 
-        return service.getPerson(idCompany).map(personDTO -> new ResponseEntity<>(personDTO, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        return service.getPerson(idPerson).map(personDTO -> new ResponseEntity<>(personDTO, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/employees")
+    public ResponseEntity<List<EmployeesSummary>> getEmployees() {
+        return ResponseEntity.ok(service.getEmployeesByCompany());
     }
 
     @PostMapping
